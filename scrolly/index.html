@@ -17,9 +17,14 @@
             padding:0;
             font-family: 'Noto Sans Georgian', sans-serif;
         }
-        a, a:hover, a:visited {
-            color: #0071bc;
+
+        a {
+            color: #0e5c5d;
         }
+        a:hover {
+            color: #72B2A6;
+        }
+
         #map {
             top:0;
             height: 100vh;
@@ -72,8 +77,9 @@
             visibility: hidden;
         }
         .centered {
-            width: 50vw;
+            width: 45vw;
             margin: 0 auto;
+            text-align: justify;
         }
         .lefty {
             width: 20vw;
@@ -91,8 +97,8 @@
         .light {
             color: #444;
             background-color: #fafafa;
-            border-radius: 15px;
-            box-shadow: 1px 2px 2px 2px #b6b5b5;
+            border-radius: 5px;
+            box-shadow: .5px 1px 1px 1px #b6b5b5;
         }
         .dark {
             color: #fafafa;
@@ -110,7 +116,7 @@
 
         .step div {
             padding:  25px;
-            line-height: 15px;
+            line-height: 20px;
             font-size: 13px;
         }
 
@@ -124,7 +130,7 @@
             pointer-events: none;
             color: #fff;
             background-color: rgba(0, 0, 0, 0.7);
-            max-width: 300px;
+            max-width: 350px;
             padding: 8px;
             font-family: 'Noto Sans Mono', sans-serif;
             font-weight: 400;
@@ -150,12 +156,6 @@
             /* Customize the content appearance here */
             padding: 10px; /* Add padding to the content wrapper if desired */
         }
-        
-        /* Custom styles for the popup close button (inside the container) */
-        .mapboxgl-popup-close-button {
-            /* Customize the close button appearance here */
-        }
-
 
         @media (max-width: 750px) {
             .centered, .lefty, .righty, .fully {
@@ -169,13 +169,12 @@
         .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
             touch-action: unset;
         }
-
-        </style>
+    </style>
 </head>
 <body>
 
 <div id="map"></div>
-<div id="story"></div>
+<div id="story"><div class="arrow bounce"></div></div>
 <script src="./config.js"></script>
 <script>
 var layerTypes = {
@@ -221,7 +220,7 @@ var header = document.createElement('div');
 
 if (config.title) {
     var titleText = document.createElement('h1');
-    titleText.innerText = config.title;
+    titleText.innerHTML = config.title;
     header.appendChild(titleText);
 }
 
@@ -255,7 +254,7 @@ config.chapters.forEach((record, idx) => {
 
     if (record.title) {
         var title = document.createElement('h3');
-        title.innerText = record.title;
+        title.innerHTML = record.title;
         chapter.appendChild(title);
     }
 
@@ -320,8 +319,8 @@ var map = new mapboxgl.Map({
     zoom: config.chapters[0].location.zoom,
     bearing: config.chapters[0].location.bearing,
     pitch: config.chapters[0].location.pitch,
-    interactive: true, attributionControl: false,
-    minZoom: 11, maxZoom: 13,
+    interactive: false, attributionControl: false,
+    //minZoom: 11, maxZoom: 13,
     transformRequest: transformRequest
 });
 
