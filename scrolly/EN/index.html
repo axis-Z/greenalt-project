@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Tbilisi Bus Lane Network</title>
     <meta charset='utf-8' />
-    <title>Tbilisi Bus Lanes</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="Observing the evolution of Tbilisi bus lane network">    
+    <meta name="news_keywords" content="urban mobility transportation tbilisi georgia sakartvelo data">
+
+    <meta property="og:title" content="Tbilisi Bus Lane Network">
+    <meta property="og:site_name" content="Z.axıs & Green Alternative">
+    <meta property="og:url" content="https://pudding.cool/2020/05/travel-local/">
+    <meta property="og:description" content="Observing the evolution of Tbilisi bus lane network">
+    <meta property="og:type" content="interactive_map">
+    <meta property="og:locale" content="en_US">
+    
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
@@ -62,7 +73,7 @@
             padding-bottom: 2vh;
             text-align: center;
             line-height: 25px;
-            font-size: 13px;
+            font-size: 11px;
             position: relative;
             border-radius: 0px !important;
             box-shadow: 1px 0px #72b2a6 ;
@@ -71,6 +82,24 @@
         #features {
             padding-top: 10vh;
             padding-bottom: 10vh;
+        }
+
+        /* Define the bounce animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-8px);
+        }
+        60% {
+            transform: translateY(-4px);
+        }
+    }
+    
+        /* Apply the animation to the <img> element */
+        #intro-arrow {
+            animation: bounce 2s infinite;
         }
     
         .hidden {
@@ -156,6 +185,33 @@
             /* Customize the content appearance here */
             padding: 10px; /* Add padding to the content wrapper if desired */
         }
+        
+        .zaxis-attr {
+            border-radius: 5px;
+            position: absolute;
+            bottom: 5px;
+            right: 0.5%;
+            z-index: 1000;
+        }
+
+        span.attr {
+            font-family: Fira Sans, sans-serif;
+            font-weight: 400;
+            font-size: 12.5px;
+            color: white;
+            text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        }
+
+
+        a.zaxis {
+            text-decoration: none;
+            color: white;
+            font-family: Noto Serif Georgia;
+            font-size: 20px;
+            font-weight: 300;
+            text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        }
+
 
         @media (max-width: 750px) {
             .centered, .lefty, .righty, .fully {
@@ -173,8 +229,13 @@
 </head>
 <body>
 
-<div id="map"></div>
-<div id="story"><div class="arrow bounce"></div></div>
+<div id="map">
+    <div class="zaxis-attr">
+        <span class="attr">Built by</span>
+        <a class="zaxis" href="https://zaxis.ge/">Z.axıs</a>
+    </div>
+</div>
+<div id="story"></div>
 <script src="./config.js"></script>
 <script>
 var layerTypes = {

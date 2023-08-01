@@ -3,18 +3,18 @@ var config = {
     accessToken: 'pk.eyJ1Ijoiam9yam9uZTkwIiwiYSI6ImNrZ3R6M2FvdTBwbmwycXBibGRqM2w2enYifQ.BxjvFSGqefuC9yFCrXC-nQ',
     showMarkers: false,
     theme: 'light',
-    title: '<p>Tbilisi Bus Lanes</p>',
+    title: '<p>Tbilisi Bus Lane Network</p>',
     subtitle: '',
     intro: '',
     byline: '',
-    footer: 'Source: Story text from Wikipedia, August 2019. Data from <a href="https://www.usgs.gov/centers/norock/science/retreat-glaciers-glacier-national-park">USGS</a>',
+    footer: 'Source: Consultancy reports, <a href="https://maps.tbilisi.gov.ge/">interactive map</a> by Tbilisi Municipality City Hall, media reports and public appearances, <a href="https://zaxis.ge/blog-ka-visual/urban-mobility-tbilisi">Z.axis</a>',
     chapters: [
         {
             id: 'intro',
             alignment: 'center',
             title: '',
             image: '',
-            description: '<p class="intro">The map depicts the gradual installation of bus lanes on Tbilisi&#8217;s streets since City Hall&#8217;s new administration announced a definitive turn in transport planning approach in July 2018. It shows the ebbs and flows of the inconsistent process and the remainder of the road before the ten transit corridors traversing some 110 kilometres are all finally there.</p><p class="intro" style="font-size: 12px;"><b>NOTE:</b></p><p class="intro" style="font-size: 11px;"><i><b>Please, hover over a specific lane to learn more about when and where it was installed. Scroll up and down the map from the right hand side to progress through the story. Use map scale controller to zoom in and out to specific areas.</b></i></p>',
+            description: '<p class="intro">The map depicts the gradual installation of bus lanes on Tbilisi&#8217;s streets since City Hall&#8217;s new administration announced a definitive turn in transport planning approach in July 2018. It shows the ebbs and flows of the inconsistent process and the remainder of the road before the ten transit corridors traversing some 110 kilometres are all finally there.</p><p class="intro" style="font-size: 12px;"><b>NOTE:</b></p><p class="intro" style="font-size: 11px;"><i><b>Please, hover over a specific lane to learn more about when and where it was installed. Scroll up and down the map to progress through the story.</b></i></p><p><a href="#bus-lanes-2018"><img id="intro-arrow" src=/Users/giorgikankia/Documents/GitHub/greenalt-project/scrolly/img/chevron-down-arrow.svg width="25" height="25"></a></p>',
             location: {
                 center: [44.809, 41.733],
                 zoom: 10.75,
@@ -23,13 +23,13 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: '',
-                    opacity: 1
+                    layer: 'cover',
+                    opacity: .6
                 }
             ],
             onChapterExit: [
                 {
-                    layer: '',
+                    layer: 'cover',
                     opacity: 0
                 }
             ]
@@ -84,7 +84,7 @@ var config = {
             onChapterExit: [
                 {
                     layer: 'tbs-bus-lanes-2018',
-                    opacity: 1
+                    opacity: 0
                 },
                 {
                     layer: 'tbs-bus-lanes-2019a',
@@ -97,7 +97,7 @@ var config = {
             alignment: 'right',
             title: 'December, 2020',
             image: '',
-            description: 'Throughout 2020, the network grew by approximately <span style="color: #9a0000;"><strong>18 km</strong></span>.',
+            description: 'A complete street redesign project was completed and/or a separated public transit lanes were installed on the following streets:<ol><li>Ilia Chavchavadze avenue</li><li>Vekua & Khizanishvili streets</li><li>Sesilia Takaishvili street</li><li>Nikoloz Baratashvili street</li><li>Zurab Anjaparidze street</li><li>Merab Kostava street (from Heroes&#8217; Square to May 26 Square)</li></ol>',
             location: {
                 center: [44.809, 41.733],
                 zoom: 11.15,
@@ -106,13 +106,29 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'tbs-bus-lanes-2020',
+                    layer: 'annotation-2020',
+                    opacity: 1
+                },
+                {
+                    layer: 'tbs-bus-lanes-2019',
+                    opacity: 1
+                },
+                {
+                    layer: 'tbs-bus-lanes-2020a',
                     opacity: 1
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'tbs-bus-lanes-2020',
+                    layer: 'annotation-2020',
+                    opacity: 0
+                },
+                {
+                    layer: 'tbs-bus-lanes-2019',
+                    opacity: 0
+                },
+                {
+                    layer: 'tbs-bus-lanes-2020a',
                     opacity: 0
                 }
             ]
@@ -122,7 +138,7 @@ var config = {
             alignment: 'right',
             title: 'December, 2020',
             image: '',
-            description: 'A complete street redesign project was completed on <u>Ilia Chavchavadze avenue (Vake)</u>.<br>Separated public transit lanes were installed on <u>Vekua</u> and <u>Khizanishvili streets in Gldani</u> and <u>Sesilia Takaishvili street in Varketili</u>.',
+            description: 'In total, the network grew by approximately <span style="color: #9a0000;"><strong>18 km</strong></span> throughout 2020.',
             location: {
                 center: [44.809, 41.733],
                 zoom: 11.15,
@@ -131,21 +147,13 @@ var config = {
             },
             onChapterEnter: [
                 {
-                    layer: 'tbs-bus-lanes-2019',
-                    opacity: 1
-                },
-                {
-                    layer: 'tbs-bus-lanes-2020a',
+                    layer: 'tbs-bus-lanes-2020',
                     opacity: 1
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'tbs-bus-lanes-2019',
-                    opacity: 1
-                },
-                {
-                    layer: 'tbs-bus-lanes-2020a',
+                    layer: 'tbs-bus-lanes-2020',
                     opacity: 0
                 }
             ]
@@ -181,31 +189,6 @@ var config = {
             title: 'December, 2022',
             image: '',
             description: 'In 2022, a total of <span style="color: #9a0000;"><strong>14.5 km</strong></span> of bus lanes was added to the network.',
-            location: {
-                center: [44.809, 41.733],
-                zoom: 11.15,
-                pitch: 0.00,
-                bearing: 0.00
-            },
-            onChapterEnter: [
-                {
-                    layer: 'tbs-bus-lanes-2022',
-                    opacity: 1
-                }
-            ],
-            onChapterExit: [
-                {
-                    layer: 'tbs-bus-lanes-2022',
-                    opacity: 0
-                }
-            ]
-        },
-        {
-            id: 'bus-lanes-2022b',
-            alignment: 'right',
-            title: 'December, 2022',
-            image: '',
-            description: '<u>Tamarashvili street</u> connected Ilia Chavchavadze avenue with Delisi metro station.<br>Bus lanes were also added on <u>Queen Tamar avenue</u>, a busy central thoroughfare from Heroes&#8217; Square to Station Square area.<br>Complete street redesign projects were finished on <u>Melikishvili and Ketevan Tsamebuli avenues</u>.',
             location: {
                 center: [44.809, 41.733],
                 zoom: 11.15,
@@ -264,15 +247,32 @@ var config = {
             },
             onChapterEnter: [
                 {
+                    layer: 'annotation-tsereteli',
+                    opacity: 1
+                },
+                {
                     layer: 'bus-lanes-future-tsereteli',
                     opacity: 1
+                },
+                {
+                    layer: 'mapbox-satellite',
+                    opacity: 1
                 }
+
             ],
             onChapterExit: [
                 {
+                    layer: 'annotation-tsereteli',
+                    opacity: 0
+                },
+                {
                     layer: 'bus-lanes-future-tsereteli',
                     opacity: 0
-                }
+                },
+                {
+                    layer: 'mapbox-satellite',
+                    opacity: 0
+                },
             ]
         },
         {
@@ -280,7 +280,7 @@ var config = {
             alignment: 'right',
             title: 'Future Expansion',
             image: '',
-            description: 'The complete bus lane network is set to connect all the missing links to cover a system of more than <span style="color: #9a0000;"><strong>160 km</strong></span> long.',
+            description: 'The complete bus lane network is set to connect all the missing links to cover a system of some <span style="color: #9a0000;"><strong>110 km</strong></span> long.',
             location: {
                 center: [44.809, 41.733],
                 zoom: 11.15,
