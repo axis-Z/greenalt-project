@@ -14,7 +14,7 @@ var config = {
             alignment: 'center',
             title: '',
             image: '',
-            description: '<p class="intro">The map depicts the gradual installation of bus lanes on Tbilisi&#8217;s streets since City Hall&#8217;s new administration announced a definitive turn in transport planning approach in July 2018. It shows the ebbs and flows of the inconsistent process and the remainder of the road before the ten transit corridors traversing some 110 kilometres are all finally there.</p><p class="intro" style="font-size: 12px;"><b>NOTE:</b></p><p class="intro" style="font-size: 11px;"><i><b>Please, hover over a specific lane to learn more about when and where it was installed. Scroll up and down the map to progress through the story.</b></i></p><p><a href="#bus-lanes-2018"><img id="intro-arrow" src=/Users/giorgikankia/Documents/GitHub/greenalt-project/scrolly/img/chevron-down-arrow.svg width="25" height="25"></a></p>',
+            description: '<p class="intro">The map depicts the gradual installation of bus lanes on Tbilisi&#8217;s streets since City Hall&#8217;s new administration announced a definitive turn in transport planning approach in July 2018. It shows the ebbs and flows of the inconsistent process and the remainder of the road before the ten transit corridors traversing some 110 kilometres are all finally there.</p><p class="intro" style="font-size: 12px;"><b>NOTE:</b></p><p class="intro" style="font-size: 11px;"><i><b>Please, hover over a specific lane to learn more about when and where it was installed. Scroll up and down the map to progress through the story.</b></i></p><p><a href="#bus-lanes-2018"><img id="intro-arrow" src=https://raw.githubusercontent.com/axis-Z/greenalt-project/main/scrolly/img/chevron-down-arrow.svg width="25" height="25"></a></p>',
             location: {
                 center: [44.809, 41.733],
                 zoom: 10.75,
@@ -24,7 +24,7 @@ var config = {
             onChapterEnter: [
                 {
                     layer: 'cover',
-                    opacity: .6
+                    opacity: 1
                 }
             ],
             onChapterExit: [

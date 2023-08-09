@@ -20,9 +20,7 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
-    <style>@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Georgian:wght@300&family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap");
-    </style>
-    
+    <style>@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Georgian:wght@300&family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");</style>
     <style>
         body {
             margin:0;
@@ -162,8 +160,7 @@
             background-color: rgba(0, 0, 0, 0.7);
             max-width: 350px;
             padding: 8px;
-            font-family: 'Noto Sans Mono', sans-serif;
-            font-weight: 400;
+            font-family: 'Space Mono', monospace;            
             font-size: 11px;
             border-radius: 5px;
         }
@@ -215,11 +212,43 @@
 
 
         @media (max-width: 750px) {
-            .centered, .lefty, .righty, .fully {
-                width: 90vw;
-                margin: 0 auto;
-            }
+          .centered, .lefty, .fully {
+              width: 90vw;
+              margin: 0 auto;
+          }
+          
+          .righty {
+            max-width: 90vw;
+            margin: 0 auto;
+            text-align: justify;
+          }
+                  
+          .zaxis-attr {
+            border-radius: 5px;
+            position: absolute;
+            bottom: 5px;
+            right: 1%;
+            z-index: 1000;
         }
+
+        span.attr {
+            font-family: Fira Sans, sans-serif;
+            font-weight: 400;
+            font-size: 9.5px;
+            color: white;
+            text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        }
+
+
+        a.zaxis {
+            text-decoration: none;
+            color: white;
+            font-family: Noto Serif Georgia;
+            font-size: 13px;
+            font-weight: 300;
+            text-shadow: -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, 0.5px 0.5px 0 black;
+        }
+      }
 
         /* Fix issue on mobile browser where scroll breaks  */
         .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, 
@@ -484,16 +513,16 @@ function showPopup(e) {
       var properties = feature.properties;
 
       // Customize the content for line features
-      var popupContent = '<h3>' + properties.Location + '</h3>'; // Example: Display the name of the line
+      var popupContent = '<h3>' + properties.ადგილი + '</h3>'; // Example: Display the name of the line
       // Add more properties as needed to the popupContent
-      if (properties.Period) {
-        popupContent += '<span><strong>Period:</strong> ' + properties.Period + '</span>';
+      if (properties.პერიოდი) {
+        popupContent += '<span><strong>პერიოდი:</strong> ' + properties.პერიოდი + '</span>';
       }
-      if (properties.Direction) {
-        popupContent += '<br><span><strong>Direction:</strong> ' + properties.Direction + '</span>';
+      if (properties.მიმართულება) {
+        popupContent += '<br><span><strong>მიმართულება:</strong> ' + properties.მიმართულება + '</span>';
       }
       if (properties.Length) {
-        popupContent += '<br><span><strong>Length (m):</strong> ' + properties.Length + '</span>';
+        popupContent += '<br><span><strong>სიგრძე (მ):</strong> ' + properties.Length + '</span>';
       }
 
       var coordinates = e.lngLat;
