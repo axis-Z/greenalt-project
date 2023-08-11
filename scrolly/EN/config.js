@@ -231,7 +231,7 @@ var config = {
       title: "July, 2023",
       image: "",
       description:
-        'This year the bus lane network in Tbilisi has increased with an additional span of <span style="color: #9a0000;"><strong>13.5 km</strong></span>. Five years after making sustainable mobility a priority, City Hall has installed just over <strong>55% (61 km)</strong> of the designated bus lanes and in a way that is extremely fragmented, forming none of the proposed 10 arterial bus corridors to date. ',
+        'This year the bus lane network in Tbilisi has increased with an additional span of <span style="color: #9a0000;"><strong>13.5 km</strong></span>. Five years after making sustainable mobility a priority, City Hall has installed just over <b>55% (61 km)</b> of the designated bus lanes and in a way that is extremely fragmented, forming none of the proposed 10 arterial bus corridors to date. ',
       location: {
         center: [44.809, 41.733],
         zoom: 11.15,
