@@ -244,7 +244,7 @@ var config = {
             opacity: 1,
           },
           {
-            layer: "tbs-bus-lanes-2023",
+            layer: "tbs-bus-lanes-2023a",
             opacity: 1,
           },
         ],
